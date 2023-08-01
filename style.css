@@ -1,51 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
-html,
-body {
+* {
   margin: 0;
   padding: 0;
-  background-color: #000;
-  font-family: 'Courier';
-  color: #FFF;
-  font-size: 13pt;
-  line-height: 11pt;
-  height: 100%;
-  overflow-x: hidden;
-}
-
-* {
   /* overflow-x: hidden; */
-
-}
-
-canvas {
-  display: block;
-  left: 50% !important;
-  top: 50% !important;
-  transform: translate(-50%, -50%);
-  position: absolute;
 }
 
 body {
-  margin: 0;
-  display: flex;
+  background-color: black;
+  /* overflow: hidden; */
+}
 
-  /* This centers our sketch horizontally. */
-  justify-content: center;
+html {
+  scrollbar-width: none;
+}
 
-  /* This centers our sketch vertically. */
-  align-items: center;
-
-  flex-direction: column;
+body::-webkit-scrollbar {
+  display: none;
 }
 
 h2 {
   font-family: 'Source Code Pro', monospace;
   font-size: 16px;
-  color: #ffffff;
+  color: white;
   font-weight: 100;
   letter-spacing: 1px;
-  /* text-decoration: underline; */
+  text-decoration: underline;
   text-transform: uppercase;
   margin: 10px 0px;
 }
@@ -59,94 +39,22 @@ h3 {
   padding-bottom: 7px;
 }
 
-.back-btn {
-  margin-top: 100px;
-  /* margin-bottom: 50px; */
-  position: absolute;
-  bottom: 25px;
-  z-index: 22;
-}
 
-.back-btn h2 {
-  color: #9ABCFF;
-  border: 2px solid #9ABCFF;
-  padding: 8px;
-  font-size: 20px;
-}
+/* -------------------------------- */
 
-.back-btn a {
-  text-decoration: none;
-}
-
-.back-btn:hover h2 {
-  /* background-color: #3A4761; */
-  border: 2px solid white;
-  color: white;
-
-}
-
-/* ----------------------------- */
-
-/* Styles the whole slider */
-.mySliders {
-  margin-top: 75px;
-  width: 200px;
-  background-color: transparent;
-
-  /* Removes some defaults */
-  -webkit-appearance: none;
-}
-
-
-/* These styles affect what happens when the cursor is focused on the slider (i.e. clicking it) */
-.mySliders:focus {
-
-  /* Stops the default outline showing up */
-  outline: none;
-}
-
-/* This is the "track" that the slider sits on  */
-.mySliders::-webkit-slider-runnable-track {
-  background: grey;
-  height: 3px;
-  -webkit-appearance: none;
-
-  /* Turns the cursor into the hand pointer icon when hovering over the slider  */
-  cursor: pointer;
-
-}
-
-/* This is the moveable bit of the slider, known as the "thumb"*/
-.mySliders::-webkit-slider-thumb {
-  width: 15px;
-  height: 15px;
-  background: white;
-  cursor: pointer;
-  -webkit-appearance: none;
-
-  /* negative top padding moves it up */
-  margin-top: -6px;
-
-
-  /* Border radius gives rounded corners, if they're big enough, you end up with circles */
-  border-radius: 8px;
-
-}
-
-/* ------------------------ */
 
 .nav {
   width: 100%;
   height: auto;
   display: flex;
-  margin: 50px 0 0 0 !important;
+  margin-top: 50px;
   align-items: center;
   justify-content: center;
 }
 
 .nav1 {
   flex: 1;
-  text-align: center;
+  text-align:center;
 }
 
 .nav2 {
@@ -177,165 +85,93 @@ h3 {
   height: auto;
 }
 
-
-/* Modal Css  */
-
-/* h1 für Header im Modal */
-
-/* h2 für Text im Modal */
-h2 {
-  color: white;
+.content {
+  width: 100%;
+  /* height: auto; */
+  display: flex;
+  margin-top: 100px;
 }
 
-.btn h3 {
-  color: black;
+.content1 {
+  flex: 1;
 }
 
-.btn:hover h3 {
-  color: white;
+.content2 {
+  flex: 1;
 }
 
-/* StartButton im Modal */
-.btn {
-  background: white;
-  border: black solid 1px;
-  border-radius: 3px;
-  color: #fff;
-  display: inline-block;
-  font-size: 14px;
-  padding: 3px 15px 0 15px;
-  margin-bottom: 20px;
-  text-decoration: none;
-  text-align: center;
-  min-width: 60px;
-  position: relative;
-  transition: color .1s ease;
+.content3 {
+  flex: 1;
 }
 
-.btn:hover {
-  background: black;
-  border: white solid 1px;
+.gif {
+  width: 15px;
+  height: 15px;
 }
 
-/* Modal wenn unsichtbar */
-.modale:before {
-  content: "";
-  display: none;
-  background: rgba(0, 0, 0, 1);
-  position: fixed;
+.img1 {
+  width: 50%;
+  height: auto;
+  border: 1px solid white;
+}
+
+.line {
+  width: 100%;
+  height: auto;
+}
+
+.banner {
+  width: 100%;
+  /* height: 100vh; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner video {
+  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-/* Modal wenn sichtbar */
-.opened:before {
+canvas {
   display: block;
 }
 
-.opened .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-  top: 40%;
-}
-
-/* ModalBody für den Gesamt-Style verantowrtlich */
-.modal-dialog {
-  background: black;
-  border: white solid 1px;
-  border-radius: 5px;
-  margin-left: -12%;
-  text-align: center;
-  position: absolute;
-  /* left: 50%; */
-  top: -100%;
-  z-index: 11;
-  width: 25vw;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  -webkit-transform: translate(0, -500%);
-  -ms-transform: translate(0, -500%);
-  transform: translate(0, -500%);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  overflow-x: hidden;
-  z-index: 21;
-}
-
-.modal-wrapper {
+.original-vid {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  height: auto;
+  border: 1px solid white;
+  margin-bottom: 250px;
 }
 
-/* Padding des jeweiligen Abschnitts definiert Abstände nach außen */
-.modal-body {
-  padding: 20px;
-}
-
-.modal-header,
-.modal-footer {
-  padding: 5px 5px;
-}
-
-/* Border ist die Trennlinie zwischen Willkommen und dem Body text */
-.modal-header {
-  padding: 5px;
-  border-bottom: #eeeeee solid 1px;
-}
-
-.modal-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.original-vid:hover {
+  border: 1px solid black;
 }
 
 
-@media (max-width: 800px) {
-	body {
-    width: 100vw;
-    height: 90vh;
-    overflow-y: hidden;
+@media only screen and (max-width: 1000px) {
+  .content1 {
+    display: none;
   }
-
-  .modal-dialog {
-    background: black;
-    border: white solid 1px;
-    border-radius: 5px;
-    margin-left: -20%;
-    text-align: center;
-    position: absolute;
-    /* left: 50%; */
-    top: -100%;
-    z-index: 11;
-    width: auto;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    -webkit-transform: translate(0, -500%);
-    -ms-transform: translate(0, -500%);
-    transform: translate(0, -500%);
-    -webkit-transition: -webkit-transform 0.3s ease-out;
-    -moz-transition: -moz-transform 0.3s ease-out;
-    -o-transition: -o-transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
-    z-index: 21;
+  .content3 {
+    display: none;
   }
-
-  .mySliders {
-    width: 60%;
-    background-color: transparent;
-
-    /* Removes some defaults */
-    -webkit-appearance: none;
-    position: absolute;
-    bottom: 100px;
-    /* z-index: 20; */
+  .nav3 {
+    display: none;
   }
-    #ascii-script {
-      overflow-x: hidden;
-    }
-
+  .nav4 {
+    display: none;
   }
+  .nav5 {
+    display: none;
+  }
+  .content2 {
+    margin: 0 50px;
+  }
+}
